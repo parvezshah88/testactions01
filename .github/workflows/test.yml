@@ -42,3 +42,14 @@ jobs:
         run: |
           python test1.py
           python test2.py
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: "chore: automated update"
+          title: "Automated update"
+          body: "This PR was created automatically by CI."
+          branch: ci/auto-update-${{ github.run_id }}
+          base: main
+          labels: automated
+          delete-branch: true
