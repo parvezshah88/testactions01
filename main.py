@@ -1,5 +1,5 @@
 import pandas as pd
 import numpy as np
 
-with open("test.txt", "+w") as f:
+with open("test.txt", "a") as f:
     f.write("This is from main.py")
