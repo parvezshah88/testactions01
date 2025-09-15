@@ -5,3 +5,6 @@ This is from test2.py
 This is from main.py
 This is from test1.py
 This is from test2.py
+This is the QA QC tool
+This is the locator tool
+This is the standards check tool
