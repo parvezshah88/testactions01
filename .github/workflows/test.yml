@@ -2,6 +2,12 @@
 
 name: CI
 
+#Permissions for Runner to make updates to the repository
+
+permissions:
+  contents: write
+  pull-requests: write
+
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
@@ -24,6 +30,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -49,6 +58,7 @@ jobs:
           commit-message: "chore: automated update"
           title: "Automated update"
           body: "This PR was created automatically by CI."
+          token: ${{ github.token }}
           branch: ci/auto-update-${{ github.run_id }}
           base: main
           labels: automated
