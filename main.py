@@ -2,4 +2,4 @@ import pandas as pd
 import numpy as np
 
 with open("test.txt", "a") as f:
-    f.write("\nThis is from main.py")
+    f.write("\nThis is the QA QC tool")
